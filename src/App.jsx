@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Scene from './components/3d/Scene';
 import Hero from './components/ui/Hero';
@@ -10,6 +11,30 @@ import Projects from './components/ui/Projects';
 import './index.css';
 
 function App() {
+  // Handle URL path-based navigation to sections
+  useEffect(() => {
+    const path = window.location.pathname.toLowerCase().replace(/^\//, '').replace(/-/g, ' ');
+    
+    const sectionMap = {
+      'technical articles': 'technical-articles',
+      'about': 'about',
+      'tech stack': 'tech-stack',
+      'bitcoin ai': 'bitcoin-ai',
+      'contribute': 'contribute',
+      'projects': 'projects',
+    };
+    
+    const sectionId = sectionMap[path];
+    if (sectionId) {
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 500); // Delay to ensure components are mounted
+    }
+  }, []);
+
   return (
     <div style={{ position: 'relative', width: '100%', minHeight: '100vh', backgroundColor: 'var(--bg-color)' }}>
       {/* 3D Background */}
@@ -22,12 +47,12 @@ function App() {
       {/* UI Overlay */}
       <main style={{ position: 'relative', zIndex: 1 }}>
         <Hero />
-        <About />
-        <TechStack />
-        <BlockchainDeepDive />
-        <BitcoinAI />
-        <Contribute />
-        <Projects />
+        <section id="about"><About /></section>
+        <section id="tech-stack"><TechStack /></section>
+        <section id="technical-articles"><BlockchainDeepDive /></section>
+        <section id="bitcoin-ai"><BitcoinAI /></section>
+        <section id="contribute"><Contribute /></section>
+        <section id="projects"><Projects /></section>
       </main>
     </div>
   );
