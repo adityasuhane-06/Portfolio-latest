@@ -22,7 +22,7 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.8 }}
           style={{ fontSize: '1.2rem', color: '#a0a0a0', maxWidth: '600px', margin: '0 auto 2rem' }}
         >
-          Exploring the convergence of Bitcoin Decentralization and Artificial Intelligence.
+          Exploring the convergence of Blockchain, Bitcoin Decentralization and Artificial Intelligence.
         </motion.p>
 
         <motion.div
