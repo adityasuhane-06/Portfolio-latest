@@ -98,7 +98,7 @@ export default function About() {
                    {[
                      { label: "TCS CodeVita", detail: "Ranked 986 (Top 0.5%)" },
                      { label: "Meta Hacker Cup", detail: "Global Rank 3,179" },
-                     { label: "Startups", detail: "Co-authored \"Sign Sarthi\" (Govt Registered)" },
+                     { label: "Patent", detail: "Co-authored \"Sign Sarthi\" (Govt Registered)" },
                      { label: "Leadership", detail: "AI/Web3 Lead at GDG Club" }
                    ].map((item, i) => (
                      <li key={i} style={{ 
